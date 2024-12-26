@@ -1,0 +1,150 @@
+*{
+  padding:0;
+  margin: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+body{   
+  background:linear-gradient(#111,#222);
+  height:100vh;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+}
+body::after{
+  content: '';
+  width:100%;
+  height:100%;
+  background-color:red;
+  position:absolute;
+  z-index: -1;
+  clip-path:circle(40% at right 85%); 
+}
+.container{
+  width:80%;
+  height:80%;
+  background: rgba(255,255,255,0.1);
+  border-radius:20px;
+  overflow:hidden;
+  margin:auto;
+}
+nav{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  width:80%;
+  margin:auto;
+  padding:20px 0;
+}
+nav .link{
+  text-decoration:none;
+  color:#fff;
+  text-transform:uppercase;
+  font-weight:700;
+  font-size: 32px;
+  letter-spacing:3px;
+}
+nav .link:hover{
+  color:#0033ff;
+  font-size: 50px;
+}
+nav ul li{
+  display:inline-block;
+  list-style:none;
+  margin:0 6px;
+}
+nav ul li a{
+  text-decoration:none; 
+  color:#fff;
+  font: size 18px;
+  font-weight: 500;
+}
+nav ul li a:hover{
+  color:#e80202;
+  font-size: 30px;
+}
+.content{
+  display:flex;
+  justify-content:space-between;
+  align-items: center;
+  width:90%;
+  margin: auto;
+  height: 100%;
+}
+.content .text{
+  color: #fff;
+  width:50%;
+}
+.content .text h2{
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size: 30px;
+  font-weight:700;
+}
+.content .text p{
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing:1px;
+  margin:10px;
+}
+.content .image{
+  width: 40%;
+}
+.content .image img{
+  width:300px;
+  animation:move;
+  animation-duration: 2s;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+  animation-direction:alternate;
+  animation-timing-function:linear ;
+}
+@keyframes move{
+  from{
+    position: relative;
+    top:-30px;
+  }
+  to{
+    position:relative;
+    top:40px;
+    transform:rotate(-10deg); 
+  }
+}
+@media (min-width:700px) and (max-width:950px){
+  .content .image img{
+    width:240px;
+  }
+}
+@media(max-width:700px){
+.content,nav{
+  flex-direction:column;
+  justify-content: center;
+}
+.content .image,.content .text{
+  width:80%;
+}
+body:after{
+  clip-path:circle(50% at bottom)
+}
+.content .text p{
+  margin-bottom:0;
+}
+.content .image img{
+  position:relative;
+  top: -30px;
+}
+@keyframes move{
+  from{
+    position: relative;
+    right:-40px;
+  }
+  to{
+    position:relative;
+    right:50px
+  }
+}
+}
+
+
+
